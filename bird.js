@@ -33,6 +33,14 @@ class Bird {
     this.velocity += this.gravity;
     this.y += this.velocity;
 
+    if (this.velocity > 0){
+      this.icon = birdSpriteFlap;
+    }
+
+    if (this.velocity < 0){
+      this.icon = birdSprite;
+    }
+
     if (this.y >= height - this.height / 2) {
       this.y = height - this.height / 2;
       this.velocity = 0;

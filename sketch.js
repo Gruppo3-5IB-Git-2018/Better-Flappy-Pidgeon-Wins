@@ -27,14 +27,15 @@ var prevTouched = touched;
 
 
 function preload() {
-  pipeBodySprite = loadImage('graphics/pipe_marshmallow_fix.png');
-  pipePeakSprite = loadImage('graphics/pipe_marshmallow_fix.png');
-  birdSprite = loadImage('graphics/train.png');
-  bgImg = loadImage('graphics/background.png');
+  pipeBodySprite = loadImage('graphics/guy.png');
+  pipePeakSprite = loadImage('graphics/guy.png');
+  birdSprite = loadImage('graphics/pigeon.png');
+  birdSpriteFlap = loadImage('graphics/pigeonfly.png');
+  bgImg = loadImage('graphics/skyline.png');
 }
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1280, 720);
   reset();
 }
 
