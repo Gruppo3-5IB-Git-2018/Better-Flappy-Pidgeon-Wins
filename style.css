@@ -1,0 +1,80 @@
+ul{
+  list-style-type: none;
+}
+
+.button-play:hover, 
+.button-credits:hover {
+  background-color: #B30D5D;
+  background-image: -webkit-linear-gradient(bottom, #B30D5D 0%, #FB1886 100%);
+  background-image:         linear-gradient(to bottom, #B30D5D 0%, #FB1886 100%);
+  cursor: pointer;
+} 
+
+#main{
+  background-color:rgb(55, 170, 59);
+  background-image:url("graphics/skyline.png");
+  background-position:50% 50%;
+  background-size:contain;
+  background-repeat:repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+#credits{
+  visibility: hidden;
+}
+ 
+#main h1{
+  color: red;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-align: center;
+  position: absolute;
+  left: 40%;
+  top: 35%;
+}
+
+.button-play {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #AA2666;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: #FB1886;
+  background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+  background-image: linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+  border-radius: 5px;
+  position: absolute;
+  left: 45%;
+  top: 45%;
+}
+
+.button-credits {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #AA2666;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: #FB1886;
+  background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+  background-image: linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+  border-radius: 5px;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+}
+
+
