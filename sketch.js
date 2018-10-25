@@ -35,7 +35,11 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1280, 720);
+  windowWidth = window.innerWidth - 17;
+  windowHeight = window.innerHeight - 17;
+  if(windowWidth/800 < windowHeight / 600) textRatio = windowWidth / 800;
+  if(windowHeight/600 <= windowWidth/800) textRatio = windowHeight / 600;
+  createCanvas(windowWidth, windowHeight);
   reset();
 }
 
