@@ -47,6 +47,7 @@ class Bird {
     }
     if(gameover1 == true) {
       this.icon = die;
+      pipePeakSprite = happyGuy;
     }
 
     if (this.y >= height - this.height / 2) {
