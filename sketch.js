@@ -20,6 +20,7 @@ var pipePeakSprite;
 var bgImg;
 var bgX;
 var gameoverFrame = 0;
+var die;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
 
@@ -37,6 +38,7 @@ function preload() {
   birdSprite = loadImage('graphics/pigeon.png');
   birdSpriteFlap = loadImage('graphics/pigeonfly.png');
   bgImg = loadImage('graphics/skyline.png');
+  die = loadImage('graphics/burst.png')
 }
 
 function setup() {
@@ -121,7 +123,7 @@ function showScores() {
   text('score: ' + score, 1, 32);
   text('record: ' + maxScore, 1, 64);
 }
-
+var gameover1;
 function gameover() {
   textSize(64 * bestRatio);
   textAlign(CENTER, CENTER);
@@ -131,6 +133,7 @@ function gameover() {
   maxScore = max(score, maxScore);
   isOver = true;
   noLoop();
+  gameover1 = true;
 }
 
 function reset() {
@@ -141,6 +144,7 @@ function reset() {
   bird = new Bird();
   pipes.push(new Pipe());
   gameoverFrame = frameCount - 1;
+  gameover1 = false;
   loop();
 }
 

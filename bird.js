@@ -40,6 +40,10 @@ class Bird {
     if (this.velocity < 0){
       this.icon = birdSprite;
     }
+    if(gameover1 == true)
+    {
+      this.icon = die;
+    }
 
     if (this.y >= height - this.height / 2) {
       this.y = height - this.height / 2;
