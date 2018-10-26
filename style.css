@@ -83,24 +83,29 @@ ul{
 }
 
 #developers{
+  font-family: 'Segoe UI';
   color: orangered;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   text-align: center;
   position: fixed;
-  left: 42%;
-  top: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
 }
 
 #tit-credit{
+  font-family: 'Segoe UI';
   color: red;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   text-align: center;
   position: fixed;
-  left: 46.5%;
-  top: 37%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .button-back{
+  font-family: 'Segoe UI';
   display: block;
   width: 150px;
   margin: 0 auto;
@@ -115,8 +120,9 @@ ul{
   background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
   background-image: linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
   border-radius: 5px;
-  position: absolute;
-  left: 44.5%;
-  top: 63%;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
