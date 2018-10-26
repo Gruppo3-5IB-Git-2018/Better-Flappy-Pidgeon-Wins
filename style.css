@@ -150,7 +150,10 @@ body {
     width: 750px;
 		height: 580px;
 		margin: auto;
-		margin-top: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     	border-radius: 40px;
     	-webkit-animation-name: animacao1;
 		-webkit-animation-duration: 1s;
@@ -182,7 +185,7 @@ body {
       margin-top: 0px;
 			margin-bottom: 0px;
 			font-size: 160px;
-			font-family: 'Black Ops One', cursive;
+      font-family: 'Segoe UI';
 			line-height: 120px;
 			text-align: center;
 			text-shadow: 5px 5px #000000;
