@@ -15,7 +15,7 @@ ul{
   background-image:url("graphics/skyline.png");
   background-position:50% 50%;
   background-size:contain;
-  background-repeat:repeat;
+  background-size: cover;
   position: fixed;
   top: 0;
   left: 0;
