@@ -23,6 +23,7 @@ var gameoverFrame = 0;
 var die;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
+var audioJump = new Audio('Musica/sound-bird.mp3');
 
 var widthRatio;
 var heightRatio;
@@ -151,6 +152,7 @@ function reset() {
 function keyPressed() {
   if (key === ' ') {
     bird.up();
+    audioJump.play();
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
   }
 }
