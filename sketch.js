@@ -89,6 +89,7 @@ function draw() {
 
        gameover();
        setTimeout(changeWindow, 800);
+       changeWindow();
     }
 
     if (pipes[i].offscreen()) {
