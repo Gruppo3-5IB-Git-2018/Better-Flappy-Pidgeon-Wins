@@ -29,6 +29,8 @@ class Bird {
     this.velocity = this.lift;
   }
 
+  
+
   update() {
     this.velocity += this.gravity;
     this.y += this.velocity;
@@ -40,8 +42,7 @@ class Bird {
     if (this.velocity < 0){
       this.icon = birdSprite;
     }
-    if(gameover1 == true)
-    {
+    if(gameover1 == true) {
       this.icon = die;
     }
 
@@ -53,6 +54,16 @@ class Bird {
     if (this.y <= this.height / 2) {
       this.y = this.height / 2;
       this.velocity = 0;
+    }
+    
+  }
+  
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
     }
   }
 }

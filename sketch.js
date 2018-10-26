@@ -124,13 +124,14 @@ function showScores() {
   text('score: ' + score, 1, 32 * bestRatio);
   text('record: ' + maxScore, 1, 64 * bestRatio);
 }
+
 var gameover1;
+
 function gameover() {
   textSize(64 * bestRatio);
   textAlign(CENTER, CENTER);
   text('GAMEOVER', width / 2, height / 2);
-  text('I PICCIONI CONQUISTERANNO IL MONDO', width / 2, height / 2.5);
-  textAlign(LEFT, BASELINE);
+  window.location.href = 'game-over.html';
   maxScore = max(score, maxScore);
   isOver = true;
   noLoop();
