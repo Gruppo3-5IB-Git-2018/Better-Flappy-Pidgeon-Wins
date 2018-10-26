@@ -87,6 +87,7 @@ function draw() {
 
     if (pipes[i].hits(bird)) {
       gameover();
+      setTimeout(changeWindow, 800);
     }
 
     if (pipes[i].offscreen()) {
@@ -132,12 +133,15 @@ var gameover1;
 function gameover() {
   textSize(64 * bestRatio);
   textAlign(CENTER, CENTER);
-  text('GAMEOVER', width / 2, height / 2);
-  window.location.href = 'game-over.html';
+  text('You Die', width / 2, height / 2);
   maxScore = max(score, maxScore);
   isOver = true;
   noLoop();
   gameover1 = true;
+}
+function changeWindow()
+{
+  window.location.href = 'game-over.html';
 }
 
 function reset() {
