@@ -128,9 +128,6 @@ function showScores() {
 var gameover1;
 
 function gameover() {
-  textSize(64 * bestRatio);
-  textAlign(CENTER, CENTER);
-  text('GAMEOVER', width / 2, height / 2);
   window.location.href = 'game-over.html';
   maxScore = max(score, maxScore);
   isOver = true;
