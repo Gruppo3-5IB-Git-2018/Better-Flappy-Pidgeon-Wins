@@ -115,6 +115,7 @@ function gameover() {
   textSize(64);
   textAlign(CENTER, CENTER);
   text('GAMEOVER', width / 2, height / 2);
+  text('I PICCIONI CONQUISTERANNO IL MONDO', width / 2, height / 2.5);
   textAlign(LEFT, BASELINE);
   maxScore = max(score, maxScore);
   isOver = true;
@@ -141,4 +142,5 @@ function keyPressed() {
 
 function touchStarted() {
   if (isOver) reset();
+ 
 }
