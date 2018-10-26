@@ -11,13 +11,13 @@ class Bird {
     this.y = height / 2;
     this.x = width/3;
 
-    this.gravity = 0.6;
-    this.lift = -10;
+    this.gravity = 0.55 * heightRatio;
+    this.lift = -8 * heightRatio;
     this.velocity = 0;
 
     this.icon = birdSprite;
-    this.width = 64;
-    this.height = 64;
+    this.width = 64 * bestRatio;
+    this.height = 64 * bestRatio;
   }
 
   show() {

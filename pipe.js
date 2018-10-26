@@ -8,13 +8,13 @@
 
 class Pipe {
   constructor() {
-    this.spacing = 200;
-    this.top = random(height / 6, 3 / 4 * height);
+    this.spacing = 200 * heightRatio;
+    this.top = random(height / 8, 5 / 8 * height);
     this.bottom = this.top + this.spacing;
 
     this.x = width;
-    this.w = 80;
-    this.speed = 3;
+    this.w = 80 * widthRatio;
+    this.speed = 3 * widthRatio;
 
     this.passed = false;
     this.highlight = false;
@@ -38,7 +38,7 @@ class Pipe {
 
   //this function is used to calculate scores and checks if we've went through the pipes
   pass(bird) {
-    if (bird.x > this.x && !this.passed) {
+    if (bird.x > this.x + this.w + bird.width && !this.passed) {
       this.passed = true;
       return true;
     }
