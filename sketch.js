@@ -21,9 +21,11 @@ var bgImg;
 var bgX;
 var gameoverFrame = 0;
 var die;
+var happyGuy;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
+var gameover1;
 
 var widthRatio;
 var heightRatio;
@@ -40,6 +42,7 @@ function preload() {
   birdSpriteFlap = loadImage('graphics/pigeonfly.png');
   bgImg = loadImage('graphics/skyline.png');
   die = loadImage('graphics/burst.png')
+  happyGuy = loadImage('graphics/guyHappy.png');
 }
 
 function setup() {
@@ -82,9 +85,10 @@ function draw() {
     if (pipes[i].pass(bird)) {
       score++;
     }
-
     if (pipes[i].hits(bird)) {
-      gameover();
+
+       gameover();
+       setTimeout(changeWindow, 800);
     }
 
     if (pipes[i].offscreen()) {
@@ -125,14 +129,20 @@ function showScores() {
   text('record: ' + maxScore, 1, 64 * bestRatio);
 }
 
-var gameover1;
+
 
 function gameover() {
-  window.location.href = 'game-over.html';
+  textSize(64 * bestRatio);
+  textAlign(CENTER, CENTER);
+  text('YOU DIE', width / 2, height / 2);
   maxScore = max(score, maxScore);
   isOver = true;
   noLoop();
   gameover1 = true;
+}
+function changeWindow()
+{
+  window.location.href = 'game-over.html';
 }
 
 function reset() {
