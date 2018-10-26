@@ -22,6 +22,10 @@ var bgX;
 var gameoverFrame = 0;
 var isOver = false;
 
+var widthRatio;
+var heightRatio;
+var bestRatio;
+
 var touched = false;
 var prevTouched = touched;
 
@@ -37,6 +41,11 @@ function preload() {
 function setup() {
   windowWidth = window.innerWidth - 17;
   windowHeight = window.innerHeight - 17;
+
+  widthRatio = windowWidth/800;
+  heightRatio = windowHeight/600;
+  if(heightRatio<widthRatio) bestRatio = heightRatio;
+  if(widthRatio <= heightRatio) bestRatio = widthRatio;
   if(windowWidth/800 < windowHeight / 600) textRatio = windowWidth / 800;
   if(windowHeight/600 <= windowWidth/800) textRatio = windowHeight / 600;
   createCanvas(windowWidth, windowHeight);
@@ -106,13 +115,13 @@ function draw() {
 }
 
 function showScores() {
-  textSize(32);
+  textSize(32 * bestRatio);
   text('score: ' + score, 1, 32);
   text('record: ' + maxScore, 1, 64);
 }
 
 function gameover() {
-  textSize(64);
+  textSize(64 * bestRatio);
   textAlign(CENTER, CENTER);
   text('GAMEOVER', width / 2, height / 2);
   text('I PICCIONI CONQUISTERANNO IL MONDO', width / 2, height / 2.5);
