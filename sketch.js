@@ -144,9 +144,13 @@ function gameover() {
   isOver = true;
   noLoop();
   gameover1 = true;
+
+  if(score == maxScore){
+    window.location.href = 'fireworks-best-score.html';
+  }
 }
-function changeWindow()
-{
+
+function changeWindow() {
   window.location.href = 'game-over.html';
 }
 
