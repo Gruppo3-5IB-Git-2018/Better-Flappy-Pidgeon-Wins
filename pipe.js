@@ -29,6 +29,7 @@ class Pipe {
         this.highlight = true;
         this.passed = true;
         return true;
+
       }
     }
     this.highlight = false;

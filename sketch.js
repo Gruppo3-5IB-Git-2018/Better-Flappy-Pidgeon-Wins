@@ -21,6 +21,7 @@ var bgImg;
 var bgX;
 var gameoverFrame = 0;
 var isOver = false;
+var audio = new Audio('Musica/music.mp3');
 
 var touched = false;
 var prevTouched = touched;
@@ -41,6 +42,7 @@ function setup() {
   if(windowHeight/600 <= windowWidth/800) textRatio = windowHeight / 600;
   createCanvas(windowWidth, windowHeight);
   reset();
+  audio.play();
 }
 
 function draw() {
