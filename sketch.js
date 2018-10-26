@@ -25,6 +25,7 @@ var happyGuy;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
+var audioBack = new Audio('Musica/sb.mp3');
 
 var widthRatio;
 var heightRatio;
@@ -56,6 +57,7 @@ function setup() {
   if(windowHeight/600 <= windowWidth/800) textRatio = windowHeight / 600;
   createCanvas(windowWidth, windowHeight);
   reset();
+  audioBack.play();
   audio.play();
 }
 
@@ -160,7 +162,7 @@ function keyPressed() {
   if (key === ' ') {
     bird.up();
     audioJump.play();
-    if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
+   // if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
   }
 }
 
