@@ -37,7 +37,7 @@ class Pipe {
 
   //this function is used to calculate scores and checks if we've went through the pipes
   pass(bird) {
-    if (bird.x > this.x && !this.passed) {
+    if (bird.x > this.x + this.w + bird.width && !this.passed) {
       this.passed = true;
       return true;
     }
