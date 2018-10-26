@@ -29,6 +29,7 @@ ul{
 }
  
 #fpb{
+  font-family: 'Segoe UI';
   color: red;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   position: fixed;
@@ -38,6 +39,7 @@ ul{
 }
 
 .button-play {
+  font-family: 'Segoe UI';
   display: block;
   width: 150px;
   margin: 0 auto;
@@ -59,6 +61,7 @@ ul{
 }
 
 .button-credits {
+  font-family: 'Segoe UI';
   display: block;
   width: 150px;
   margin: 0 auto;
