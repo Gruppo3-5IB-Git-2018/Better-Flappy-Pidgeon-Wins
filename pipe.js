@@ -5,22 +5,30 @@
 
 // Pipe is exported (eslint flags)
 /* exported Pipe */
+var peakRatio;
+var bodyRatio;
+var moving = 0;
+var rising;
 
 class Pipe {
   constructor() {
     this.spacing = 200 * heightRatio;
     this.top = random(height / 8, 5 / 8 * height);
     this.bottom = this.top + this.spacing;
-
     this.x = width;
     this.w = 80 * widthRatio;
     this.speed = 3 * widthRatio;
 
     this.passed = false;
     this.highlight = false;
+    this.moving = (score + 2) / 30;
+    this.rising = floor(random(0, 2));
+    this.peakRatio = pipePeakSprite.height / pipePeakSprite.width;
+    this.bodyRatio = pipeBodySprite.height / pipeBodySprite.width;
   }
 
   hits(bird) {
+    //return false;
     let halfBirdHeight = bird.height / 2;
     let halfBirdwidth = bird.width / 2;
     if (bird.y - halfBirdHeight < this.top || bird.y + halfBirdHeight > this.bottom) {
@@ -47,16 +55,14 @@ class Pipe {
 
   drawHalf() {
     let howManyNedeed = 0;
-    let peakRatio = pipePeakSprite.height / pipePeakSprite.width;
-    let bodyRatio = pipeBodySprite.height / pipeBodySprite.width;
     //this way we calculate, how many tubes we can fit without stretching
-    howManyNedeed = Math.round(height / (this.w * bodyRatio));
+    howManyNedeed = Math.round(height / (this.w * this.bodyRatio));
     //this <= and start from 1 is just my HACK xD But it's working
     for (let i = 0; i < howManyNedeed; ++i) {
-      let offset = this.w * (i * bodyRatio + peakRatio);
-      image(pipeBodySprite, -this.w / 2, offset, this.w, this.w * bodyRatio);
+      let offset = this.w * (i * this.bodyRatio + this.peakRatio);
+      image(pipeBodySprite, -this.w / 2, offset, this.w, this.w * this.bodyRatio);
     }
-    image(pipePeakSprite, -this.w / 2, 0, this.w, this.w * peakRatio);
+    image(pipePeakSprite, -this.w / 2, 0, this.w, this.w * this.peakRatio);
   }
 
   show() {
@@ -71,6 +77,24 @@ class Pipe {
 
   update() {
     this.x -= this.speed;
+    if (this.moving >= 1) {
+      if (this.rising == 0) {
+        this.bottom -= this.moving;
+        this.top -= this.moving;
+        //this.rising = 1;
+        if (this.top < (heightRatio * 600) * (1/8)) {
+          this.rising = 1;
+        }
+      }
+      if (this.rising == 1) {
+        this.bottom += this.moving;
+        this.top += this.moving;
+        //this.rising = 0;
+        if (this.top > (heightRatio * 600) * (17/32)) {
+          this.rising = 0;
+        }
+      }
+    }
   }
 
   offscreen() {
