@@ -21,6 +21,7 @@ var bgImg;
 var bgX;
 var gameoverFrame = 0;
 var die;
+var happyGuy;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
@@ -40,6 +41,7 @@ function preload() {
   birdSpriteFlap = loadImage('graphics/pigeonfly.png');
   bgImg = loadImage('graphics/skyline.png');
   die = loadImage('graphics/burst.png')
+  happyGuy = loadImage('graphics/guyHappy.png');
 }
 
 function setup() {
