@@ -88,8 +88,11 @@ function draw() {
     if (pipes[i].hits(bird)) {
 
        gameover();
-       setTimeout(changeWindow, 800);
-       changeWindow();
+       //setTimeout(changeWindow, 800);
+        
+        sleep(1000).then(() => {
+            changeWindow();
+        });
     }
 
     if (pipes[i].offscreen()) {
