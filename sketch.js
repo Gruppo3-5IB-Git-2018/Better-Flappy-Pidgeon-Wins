@@ -120,8 +120,8 @@ function draw() {
 
 function showScores() {
   textSize(32 * bestRatio);
-  text('score: ' + score, 1, 32);
-  text('record: ' + maxScore, 1, 64);
+  text('score: ' + score, 1, 32 * bestRatio);
+  text('record: ' + maxScore, 1, 64 * bestRatio);
 }
 var gameover1;
 function gameover() {
