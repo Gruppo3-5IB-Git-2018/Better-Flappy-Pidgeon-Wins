@@ -21,7 +21,7 @@ class Pipe {
 
     this.passed = false;
     this.highlight = false;
-    this.moving = (score + 2) / 30;
+    this.moving = (score + 2) / 15;
     this.rising = floor(random(0, 2));
     this.peakRatio = pipePeakSprite.height / pipePeakSprite.width;
     this.bodyRatio = pipeBodySprite.height / pipeBodySprite.width;
