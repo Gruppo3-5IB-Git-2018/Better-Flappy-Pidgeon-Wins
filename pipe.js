@@ -12,7 +12,7 @@ var rising;
 
 class Pipe {
   constructor() {
-    this.spacing = 200 * bestRatio;
+    this.spacing = 200 * jumpRatio;
     this.top = random(height / 8, 5 / 8 * height);
     this.bottom = this.top + this.spacing;
     this.x = width;
@@ -60,7 +60,7 @@ class Pipe {
     //this <= and start from 1 is just my HACK xD But it's working
     for (let i = 0; i < howManyNedeed; ++i) {
       let offset = this.w * (i * this.bodyRatio + this.peakRatio);
-      image(pipeBodySprite, -this.w / 2, offset, this.w, this.w * this.bodyRatio);
+      image(pipeBodySprite, -this.w / 2, offset - 2, this.w, this.w * this.bodyRatio + 2);
     }
     image(pipePeakSprite, -this.w / 2, 0, this.w, this.w * this.peakRatio);
   }

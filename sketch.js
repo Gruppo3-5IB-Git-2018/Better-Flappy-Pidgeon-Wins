@@ -28,6 +28,7 @@ var audioJump = new Audio('Musica/sound-bird.mp3');
 var widthRatio;
 var heightRatio;
 var bestRatio;
+var jumpRatio;
 
 var touched = false;
 var prevTouched = touched;
@@ -35,8 +36,8 @@ var prevTouched = touched;
 
 function preload() {
   
-  pipeBodySprite = loadImage('graphics/guy.png');
-  pipePeakSprite = loadImage('graphics/guy.png');
+  pipeBodySprite = loadImage('graphics/guylegs.png');
+  pipePeakSprite = loadImage('graphics/guytop.png');
   birdSprite = loadImage('graphics/pigeon.png');
   birdSpriteFlap = loadImage('graphics/pigeonfly.png');
   bgImg = loadImage('graphics/skyline.png');
@@ -51,6 +52,7 @@ function setup() {
 
   widthRatio = windowWidth/800;
   heightRatio = windowHeight/600;
+  jumpRatio = (heightRatio + widthRatio) / 2;
   if(heightRatio<widthRatio) bestRatio = heightRatio;
   if(widthRatio <= heightRatio) bestRatio = widthRatio;
   if(windowWidth/800 < windowHeight / 600) textRatio = windowWidth / 800;
