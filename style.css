@@ -184,6 +184,8 @@ body {
 			height: auto;
 			padding-top: 60px;
       background: none;
+      display: flex;
+      align-items: center;
     }
 
 .gameover p {
