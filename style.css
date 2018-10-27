@@ -37,9 +37,19 @@ ul{
   color: red;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   position: fixed;
-  top: 40%;
+  font-size: 400%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from { -webkit-mask-position: 150%; }
+  to { -webkit-mask-position: -50%; }
 }
 
 .button-play {
@@ -64,7 +74,7 @@ ul{
   transform: translate(-50%, -50%);
 }
 
-.button-credits {
+.choose-character {
   font-family: 'Segoe UI';
   display: block;
   width: 150px;
@@ -82,6 +92,28 @@ ul{
   border-radius: 5px;
   position: fixed;
   top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-credits {
+  font-family: 'Segoe UI';
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #AA2666;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: #FB1886;
+  background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+  background-image: linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+  border-radius: 5px;
+  position: fixed;
+  top: 63%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
