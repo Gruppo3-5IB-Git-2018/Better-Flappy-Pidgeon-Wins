@@ -183,12 +183,13 @@ body {
       width:750px;
 			height: auto;
 			padding-top: 60px;
-			background: none;}
+      background: none;
+    }
 
 .gameover p {
       margin-top: 0px;
 			margin-bottom: 0px;
-			font-size: 160px;
+			font-size: 130px;
       font-family: 'Segoe UI';
 			line-height: 120px;
 			text-align: center;
@@ -211,8 +212,10 @@ body {
 .opcoes {
     width: 550px;
 		height: auto;
-		padding-top: 50px;
-		margin: auto;}
+    padding-top: 50px;
+    padding-left: 100px;
+    margin: auto;
+  }
 
 .yes a {text-align: center;
 		font-size: 30px;
