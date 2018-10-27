@@ -181,7 +181,6 @@ function keyPressed() {
   }
 }
 function salta(){
-
     bird.up();
     audioJump.play();
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.

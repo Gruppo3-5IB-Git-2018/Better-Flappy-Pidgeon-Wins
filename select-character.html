@@ -19,6 +19,10 @@
           document.getElementById("original-pidgeot").style.backgroundColor = "grey";
           document.getElementById("original-character").style.backgroundColor = "transparent";
       }
+
+      function goback(){
+        window.location.href = "home.html";
+      }
   </script>
 </head>
 
@@ -27,10 +31,10 @@
   <div id="background-select" class="w3-row w3-border">
         <div id="original-flappy-div" class="w3-third w3-container">
             <h1 id="title-character">Select a character</h1>
-            <img   onclick="flappy()" id="original-character" src="graphics/flappy-original.png">
+            <img   onclick="flappy()" ondblclick="goback()" id="original-character" src="graphics/flappy-original.png">
         </div>
         <div id="original-pidgeot-div" class="w3-third w3-container">
-                <img onclick="pidgeot()" id="original-pidgeot" src="graphics/pigeon.png">
+                <img onclick="pidgeot()" ondblclick="goback()" id="original-pidgeot" src="graphics/pigeon.png">
         </div>
   </div>
 </body>

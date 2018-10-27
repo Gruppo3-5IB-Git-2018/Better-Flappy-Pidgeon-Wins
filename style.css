@@ -89,6 +89,8 @@ ul{
   transform: translate(-50%, -50%);
 }
 
+
+
 .choose-character {
   font-family: 'Segoe UI';
   display: block;
@@ -350,6 +352,5 @@ body {
   -webkit-mask-size: 200%;
   animation: shine 2s linear infinite;
 }
-
 
 
