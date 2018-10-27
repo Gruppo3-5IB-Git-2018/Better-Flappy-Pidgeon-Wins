@@ -32,14 +32,39 @@ ul{
   visibility: hidden;
 }
  
+
+#background-select{
+  background-image:url("graphics/skyline.png");
+  background-position:50% 50%;
+  background-size:contain;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
 #fpb{
   font-family: 'Segoe UI';
   color: red;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   position: fixed;
-  top: 40%;
+  font-size: 400%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+
+@keyframes shine {
+  from { -webkit-mask-position: 150%; }
+  to { -webkit-mask-position: -50%; }
 }
 
 .button-play {
@@ -64,7 +89,7 @@ ul{
   transform: translate(-50%, -50%);
 }
 
-.button-credits {
+.choose-character {
   font-family: 'Segoe UI';
   display: block;
   width: 150px;
@@ -82,6 +107,28 @@ ul{
   border-radius: 5px;
   position: fixed;
   top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-credits {
+  font-family: 'Segoe UI';
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #AA2666;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  background-color: #FB1886;
+  background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
+  background-image: linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
+  border-radius: 5px;
+  position: fixed;
+  top: 63%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -183,12 +230,15 @@ body {
       width:750px;
 			height: auto;
 			padding-top: 60px;
-			background: none;}
+      background: none;
+      display: flex;
+      align-items: center;
+    }
 
 .gameover p {
       margin-top: 0px;
 			margin-bottom: 0px;
-			font-size: 160px;
+			font-size: 130px;
       font-family: 'Segoe UI';
 			line-height: 120px;
 			text-align: center;
@@ -211,8 +261,10 @@ body {
 .opcoes {
     width: 550px;
 		height: auto;
-		padding-top: 50px;
-		margin: auto;}
+    padding-top: 50px;
+    padding-left: 100px;
+    margin: auto;
+  }
 
 .yes a {text-align: center;
 		font-size: 30px;
@@ -273,6 +325,31 @@ body {
   float: left;
 }
 
+
+#original-flappy-div{
+  position: fixed;
+  top: 22.5%;
+  left: 25%;
+}
+
+#original-pidgeot-div{
+  position: fixed;
+  top: 33%;
+  left:40%;
+}
+
+
+#title-character{
+  top: 25%;
+  left: 50%;
+  font-family: 'Segoe UI';
+  color: red;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
 
 
 

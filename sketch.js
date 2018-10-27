@@ -39,8 +39,21 @@ function preload() {
   
   pipeBodySprite = loadImage('graphics/guylegs.png');
   pipePeakSprite = loadImage('graphics/guytop.png');
-  birdSprite = loadImage('graphics/pigeon.png');
-  birdSpriteFlap = loadImage('graphics/pigeonfly.png');
+
+  if(localStorage.getItem("personaggio") != null && localStorage.getItem("personaggio") == "pidgeot"){
+    birdSprite = loadImage('graphics/pigeon.png');
+    birdSpriteFlap = loadImage('graphics/pigeonfly.png');
+  }
+  if(localStorage.getItem("personaggio") != null && localStorage.getItem("personaggio") == "flappy"){
+    birdSprite = loadImage('graphics/flappy-original.png');
+    birdSpriteFlap = loadImage('graphics/flappy-original.png');
+  }
+  if(localStorage.getItem("personaggio") == null){
+    birdSprite = loadImage('graphics/pigeon.png');
+    birdSpriteFlap = loadImage('graphics/pigeonfly.png');
+  }
+
+
   bgImg = loadImage('graphics/skyline.png');
   die = loadImage('graphics/burst.png')
   //if(localStorage.getItem('maxScore') == "") localStorage.setItem("maxScore", 0);
