@@ -41,7 +41,7 @@ function preload() {
   birdSpriteFlap = loadImage('graphics/pigeonfly.png');
   bgImg = loadImage('graphics/skyline.png');
   die = loadImage('graphics/burst.png')
-  if(!localStorage.getItem('maxScore')) localStorage.setItem("maxScore", 0);
+  //if(localStorage.getItem('maxScore') == "") localStorage.setItem("maxScore", 0);
   if(localStorage.getItem('maxScore')) maxScore = localStorage.getItem('maxScore');
 }
 

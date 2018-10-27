@@ -12,7 +12,7 @@ var rising;
 
 class Pipe {
   constructor() {
-    this.spacing = 200 * heightRatio;
+    this.spacing = 200 * bestRatio;
     this.top = random(height / 8, 5 / 8 * height);
     this.bottom = this.top + this.spacing;
     this.x = width;
