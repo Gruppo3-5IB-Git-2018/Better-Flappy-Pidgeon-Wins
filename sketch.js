@@ -24,6 +24,7 @@ var die;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
+var audioBakc = new Audio('Musica/sb.mp3');
 
 var widthRatio;
 var heightRatio;
@@ -59,6 +60,7 @@ function setup() {
   
   reset();
   audio.play();
+  audioBakc.play();
 }
 
 function draw() {
