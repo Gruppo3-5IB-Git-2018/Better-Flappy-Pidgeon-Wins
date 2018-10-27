@@ -10,10 +10,14 @@
   <script>
       function flappy(){
           localStorage.setItem('personaggio', "flappy");
+          document.getElementById("original-character").style.backgroundColor = "grey";
+          document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
       }
 
       function pidgeot(){
           localStorage.setItem('personaggio', "pidgeot");
+          document.getElementById("original-pidgeot").style.backgroundColor = "grey";
+          document.getElementById("original-character").style.backgroundColor = "transparent";
       }
   </script>
 </head>
