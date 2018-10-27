@@ -138,6 +138,10 @@ function gameover() {
   isOver = true;
   noLoop();
   gameover1 = true;
+
+  if(score==localStorage.getItem('maxScore')){
+    window.location.href = "fireworks-best-score.html";
+  }
 }
 
 function reset() {
