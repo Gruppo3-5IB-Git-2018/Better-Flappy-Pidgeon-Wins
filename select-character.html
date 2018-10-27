@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Select a character</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <script>
+      function flappy(){
+          localStorage.setItem('personaggio', "flappy");
+      }
+
+      function pidgeot(){
+          localStorage.setItem('personaggio', "pidgeot");
+      }
+  </script>
+</head>
+
+<body>
+
+  <div id="background-select" class="w3-row w3-border">
+        <div id="original-flappy-div" class="w3-third w3-container">
+            <h1 id="title-character">Select a character</h1>
+            <img   onclick="flappy()" id="original-character" src="graphics/flappy-original.png">
+        </div>
+        <div id="original-pidgeot-div" class="w3-third w3-container">
+                <img onclick="pidgeot()" id="original-pidgeot" src="graphics/pigeon.png">
+        </div>
+  </div>
+</body>
+
+</html>

@@ -32,6 +32,20 @@ ul{
   visibility: hidden;
 }
  
+
+#background-select{
+  background-image:url("graphics/skyline.png");
+  background-position:50% 50%;
+  background-size:contain;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
 #fpb{
   font-family: 'Segoe UI';
   color: red;
@@ -46,6 +60,7 @@ ul{
   -webkit-mask-size: 200%;
   animation: shine 2s linear infinite;
 }
+
 
 @keyframes shine {
   from { -webkit-mask-position: 150%; }
@@ -310,6 +325,31 @@ body {
   float: left;
 }
 
+
+#original-flappy-div{
+  position: fixed;
+  top: 25%;
+  left: 25%;
+}
+
+#original-pidgeot-div{
+  position: fixed;
+  top: 33%;
+  left:40%;
+}
+
+
+#title-character{
+  top: 25%;
+  left: 50%;
+  font-family: 'Segoe UI';
+  color: red;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
 
 
 
