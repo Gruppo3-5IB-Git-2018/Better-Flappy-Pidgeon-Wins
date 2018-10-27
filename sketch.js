@@ -21,11 +21,9 @@ var bgImg;
 var bgX;
 var gameoverFrame = 0;
 var die;
-var happyGuy;
 var isOver = false;
 var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
-var audioBack = new Audio('Musica/sb.mp3');
 
 var widthRatio;
 var heightRatio;
@@ -36,13 +34,15 @@ var prevTouched = touched;
 
 
 function preload() {
+  
   pipeBodySprite = loadImage('graphics/guy.png');
   pipePeakSprite = loadImage('graphics/guy.png');
   birdSprite = loadImage('graphics/pigeon.png');
   birdSpriteFlap = loadImage('graphics/pigeonfly.png');
   bgImg = loadImage('graphics/skyline.png');
   die = loadImage('graphics/burst.png')
-  happyGuy = loadImage('graphics/guyHappy.png');
+  if(!localStorage.getItem('maxScore')) localStorage.setItem("maxScore", 0);
+  if(localStorage.getItem('maxScore')) maxScore = localStorage.getItem('maxScore');
 }
 
 function setup() {
@@ -56,8 +56,8 @@ function setup() {
   if(windowWidth/800 < windowHeight / 600) textRatio = windowWidth / 800;
   if(windowHeight/600 <= windowWidth/800) textRatio = windowHeight / 600;
   createCanvas(windowWidth, windowHeight);
+  
   reset();
-  audioBack.play();
   audio.play();
 }
 
@@ -86,14 +86,9 @@ function draw() {
     if (pipes[i].pass(bird)) {
       score++;
     }
-    if (pipes[i].hits(bird)) {
 
-       gameover();
-       //setTimeout(changeWindow, 800);
-        
-        sleep(1000).then(() => {
-            changeWindow();
-        });
+    if (pipes[i].hits(bird)) {
+      gameover();
     }
 
     if (pipes[i].offscreen()) {
@@ -131,27 +126,18 @@ function draw() {
 function showScores() {
   textSize(32 * bestRatio);
   text('score: ' + score, 1, 32 * bestRatio);
-  text('record: ' + maxScore, 1, 64 * bestRatio);
+  text('record: ' + localStorage.getItem('maxScore'), 1, 64 * bestRatio);
 }
 
-
+var gameover1;
 
 function gameover() {
-  textSize(64 * bestRatio);
-  textAlign(CENTER, CENTER);
-  text('YOU DIE', width / 2, height / 2);
+  window.location.href = 'game-over.html';
   maxScore = max(score, maxScore);
+  localStorage.setItem('maxScore', max(score, maxScore));
   isOver = true;
   noLoop();
   gameover1 = true;
-
-  if(score == maxScore){
-    window.location.href = 'fireworks-best-score.html';
-  }
-}
-
-function changeWindow() {
-  window.location.href = 'game-over.html';
 }
 
 function reset() {
@@ -170,11 +156,10 @@ function keyPressed() {
   if (key === ' ') {
     bird.up();
     audioJump.play();
-   // if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
+    if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
   }
 }
 
 function touchStarted() {
   if (isOver) reset();
- 
 }
