@@ -359,8 +359,16 @@ body {
   -ms-filter: blur(5px);
   filter: blur(5px);
 }
+#lock{
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 37%;
+  left:78%;
+}
 
-#original-dragon-blurred:hover{
+
+#lock:hover, #original-dragon-blurred:hover{
 animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;

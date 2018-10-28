@@ -14,6 +14,7 @@
         document.getElementById("pScore").innerHTML = (localStorage.getItem('maxScore') + "/50").toString();
         if(localStorage.getItem('maxScore') >= 50){
           document.getElementById("original-dragon-blurred").style.visibility = "hidden";
+          document.getElementById("lock").style.visibility = "hidden";
           document.getElementById("original-dragon").style.visibility = "visible";
         }
       }
@@ -79,6 +80,7 @@
 
         <div id="original-dragon-div" class="w3-third w3-container">
           <img onclick="dragonLocked()" id="original-dragon-blurred" src="graphics/drago.png">
+          <img onclick="dragonLocked()" id="lock" src="graphics/lucchetto.png">
           <img onclick="dragon()" ondblclick="goback()" id="original-dragon" src="graphics/drago.png">
           <p id="pScore" style="color:red"> </p>
       </div>
