@@ -26,9 +26,11 @@ var bgX;
 var gameoverFrame = 0;
 var die;
 var isOver = false;
-var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
 var audioBakc = new Audio('Musica/sb.mp3');
+var audioPenguin = new Audio ('Musica/penguinSound.mp3');
+var audioDrago = new Audio ('Musica/dragoSound.mp3');
+var audioFlappyBird = new Audio ('Musica/birdFlappySound.mp3');
 
 var widthRatio;
 var heightRatio;
@@ -91,7 +93,6 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   
   reset();
-  audio.play();
   audioBakc.play();
 }
 
@@ -230,13 +231,45 @@ function reset() {
 function keyPressed() {
   if (key === ' ') {
     bird.up();
-    audioJump.play();
+    if(localStorage.getItem("personaggio") == "pidgeot"){
+     audioJump.play();
+        }
+     if(localStorage.getItem("personaggio") == "penguin")
+     {
+      audioPenguin.play(); 
+      }
+     if(localStorage.getItem("personaggio") == "flappy")
+     {
+       audioFlappyBird.play();
+     }
+   
+     if(localStorage.getItem("personaggio") == "dragon")
+     {  
+       audioDrago.play();
+     }
+    
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
   }
 }
 function salta(){
     bird.up();
-    audioJump.play();
+    if( localStorage.getItem("personaggio") == "pidgeot"){
+      audioJump.play();
+        }
+     if(localStorage.getItem("personaggio") == "penguin")
+     {
+      audioPenguin.play(); 
+      }
+     if(localStorage.getItem("personaggio") == "flappy")
+     {
+       audioFlappyBird.play();
+     }
+   
+     if(localStorage.getItem("personaggio") == "dragon")
+     {  
+       audioDrago.play();
+     }
+    
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
 
 }
