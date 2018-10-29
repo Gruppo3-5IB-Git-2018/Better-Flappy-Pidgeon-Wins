@@ -17,7 +17,11 @@ var maxScore = 0;
 var birdSprite;
 var pipeBodySprite;
 var pipePeakSprite;
+var bgMenu;
 var bgImg;
+var bgImgPen;
+var bgImgFB;
+var bgImgDra;
 var bgX;
 var gameoverFrame = 0;
 var die;
@@ -48,16 +52,19 @@ function preload() {
     if(localStorage.getItem("personaggio") == "flappy"){
       birdSprite = loadImage('graphics/flappy-original.png');
       birdSpriteFlap = loadImage('graphics/flappy-original.png');
+      bgImgFB = loadImage('graphics/fbb.png');
     }
 
     if(localStorage.getItem("personaggio") == "penguin"){
       birdSprite = loadImage('graphics/pinguino.png');
       birdSpriteFlap = loadImage('graphics/pinguino.png');
+      bgImgPen = loadImage('graphics/arctic2.jpg'); 
     }
 
     if(localStorage.getItem("personaggio") == "dragon"){
       birdSprite = loadImage('graphics/drago.png');
       birdSpriteFlap = loadImage('graphics/drago.png');
+      bgImgDra = loadImage('graphics/castle.jpg');
     }
   }else{
     birdSprite = loadImage('graphics/pigeon.png');
@@ -90,21 +97,58 @@ function setup() {
 
 function draw() {
   background(0);
-  // Draw our background image, then move it at the same speed as the pipes
-  image(bgImg, bgX, 0, bgImg.width, height);
-  bgX -= pipes[0].speed * parallax;
+  
 
-  // this handles the "infinite loop" by checking if the right
-  // edge of the image would be on the screen, if it is draw a
-  // second copy of the image right next to it
-  // once the second image gets to the 0 point, we can reset bgX to
-  // 0 and go back to drawing just one image.
-  if (bgX <= -bgImg.width + width) {
-    image(bgImg, bgX + bgImg.width, 0, bgImg.width, height);
-    if (bgX <= -bgImg.width) {
-      bgX = 0;
+
+  if(localStorage.getItem("personaggio") != null){
+    image(bgImg, bgX, 0, bgImg.width, height);
+    bgX -= pipes[0].speed * parallax;
+  
+    if (bgX <= -bgImg.width + width) {
+      image(bgImg, bgX + bgImg.width, 0, bgImg.width, height);
+      if (bgX <= -bgImg.width) {
+        bgX = 0;
+      }
     }
   }
+  if(localStorage.getItem("personaggio") == "penguin")
+  {
+    image(bgImgPen, bgX, 0, bgImgPen.width, height);
+    bgX -= pipes[0].speed * parallax;
+  
+    if (bgX <= -bgImgPen.width + width) {
+      image(bgImgPen, bgX + bgImgPen.width, 0, bgImgPen.width, height);
+      if (bgX <= -bgImgPen.width) {
+        bgX = 0;
+      }
+    }
+  }
+  if(localStorage.getItem("personaggio") == "flappy")
+  {
+    image(bgImgFB, bgX, 0, bgImgFB.width, height);
+    bgX -= pipes[0].speed * parallax;
+  
+    if (bgX <= -bgImgFB.width + width) {
+      image(bgImgFB, bgX + bgImgFB.width, 0, bgImgFB.width, height);
+      if (bgX <= -bgImgFB.width) {
+        bgX = 0;
+      }
+    }
+  }
+
+  if(localStorage.getItem("personaggio") == "dragon")
+  {
+    image(bgImgDra, bgX, 0, bgImgDra.width, height);
+    bgX -= pipes[0].speed * parallax;
+  
+    if (bgX <= -bgImgDra.width + width) {
+      image(bgImgDra, bgX + bgImgDra.width, 0, bgImgDra.width, height);
+      if (bgX <= -bgImgDra.width) {
+        bgX = 0;
+      }
+    }
+  }
+ 
 
   for (var i = pipes.length - 1; i >= 0; i--) {
     pipes[i].update();
