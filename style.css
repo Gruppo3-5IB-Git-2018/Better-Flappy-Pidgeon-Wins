@@ -16,7 +16,7 @@ ul{
 
 #main{
   background-color:rgb(55, 170, 59);
-  background-image:url("graphics/skyline.png");
+  background-image:url("graphics/menuBack.jpg");
   background-position:50% 50%;
   background-size:contain;
   background-size: cover;
@@ -34,7 +34,7 @@ ul{
  
 
 #background-select{
-  background-image:url("graphics/skyline.png");
+  background-image:url("graphics/menuBack.jpg");
   background-position:50% 50%;
   background-size:contain;
   background-size: cover;
@@ -88,6 +88,8 @@ ul{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
 
 .choose-character {
   font-family: 'Segoe UI';
@@ -330,12 +332,61 @@ body {
   position: fixed;
   top: 22.5%;
   left: 25%;
+  transition: transform .2s; /* Animation */
 }
 
 #original-pidgeot-div{
   position: fixed;
   top: 33%;
   left:40%;
+  transition: transform .2s; /* Animation */
+}
+
+#original-penguin-div{
+  position: fixed;
+  top: 33%;
+  left:60%;
+  transition: transform .2s; /* Animation */
+}
+
+#original-dragon-blurred{
+  position: fixed;
+  top: 30%;
+  left:75%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+#lock{
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 37%;
+  left:78%;
+}
+
+
+#lock:hover, #original-dragon-blurred:hover{
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+#original-dragon{
+  position: fixed;
+  transition: transform .2s; /* Animation */
+  top: 30%;
+  left:75%;
+  visibility: hidden;
+}
+#pScore{
+  position: fixed;
+  font-size: large;
+  top: 56%;
+  left:80%;
 }
 
 
@@ -352,4 +403,24 @@ body {
 }
 
 
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+#original-dragon:hover, #original-character:hover, #original-pidgeot:hover, #original-penguin:hover{
+  transform: scale(1.3);
+}

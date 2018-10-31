@@ -17,14 +17,20 @@ var maxScore = 0;
 var birdSprite;
 var pipeBodySprite;
 var pipePeakSprite;
+var bgMenu;
 var bgImg;
+var bgImgPen;
+var bgImgFB;
+var bgImgDra;
 var bgX;
 var gameoverFrame = 0;
 var die;
 var isOver = false;
-var audio = new Audio('Musica/music.mp3');
 var audioJump = new Audio('Musica/sound-bird.mp3');
 var audioBakc = new Audio('Musica/sb.mp3');
+var audioPenguin = new Audio ('Musica/penguinSound.mp3');
+var audioDrago = new Audio ('Musica/dragoSound.mp3');
+var audioFlappyBird = new Audio ('Musica/birdFlappySound.mp3');
 
 var widthRatio;
 var heightRatio;
@@ -39,22 +45,30 @@ function preload() {
   
   pipeBodySprite = loadImage('graphics/guylegs.png');
   pipePeakSprite = loadImage('graphics/guytop.png');
+  bgImg = loadImage('graphics/fbb.png');
+    if(localStorage.getItem("personaggio") == "pidgeot"){
+      birdSprite = loadImage('graphics/pigeon.png');
+      birdSpriteFlap = loadImage('graphics/pigeonfly.png');
+    }
+    if(localStorage.getItem("personaggio") == "flappy"){
+      birdSprite = loadImage('graphics/flappy-original.png');
+      birdSpriteFlap = loadImage('graphics/flappy-original.png');
+      bgImg = loadImage('graphics/fbb.png');
+    }
 
-  if(localStorage.getItem("personaggio") != null && localStorage.getItem("personaggio") == "pidgeot"){
-    birdSprite = loadImage('graphics/pigeon.png');
-    birdSpriteFlap = loadImage('graphics/pigeonfly.png');
-  }
-  if(localStorage.getItem("personaggio") != null && localStorage.getItem("personaggio") == "flappy"){
-    birdSprite = loadImage('graphics/flappy-original.png');
-    birdSpriteFlap = loadImage('graphics/flappy-original.png');
-  }
-  if(localStorage.getItem("personaggio") == null){
-    birdSprite = loadImage('graphics/pigeon.png');
-    birdSpriteFlap = loadImage('graphics/pigeonfly.png');
-  }
+    if(localStorage.getItem("personaggio") == "penguin"){
+      birdSprite = loadImage('graphics/pinguino.png');
+      birdSpriteFlap = loadImage('graphics/pinguino.png');
+      bgImg = loadImage('graphics/arctic2.jpg'); 
+    }
 
+    if(localStorage.getItem("personaggio") == "dragon"){
+      birdSprite = loadImage('graphics/drago.png');
+      birdSpriteFlap = loadImage('graphics/drago.png');
+      bgImg = loadImage('graphics/castle.jpg');
+    }
+  
 
-  bgImg = loadImage('graphics/skyline.png');
   die = loadImage('graphics/burst.png')
   //if(localStorage.getItem('maxScore') == "") localStorage.setItem("maxScore", 0);
   if(localStorage.getItem('maxScore')) maxScore = localStorage.getItem('maxScore');
@@ -74,27 +88,24 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   
   reset();
-  audio.play();
   audioBakc.play();
 }
 
 function draw() {
   background(0);
-  // Draw our background image, then move it at the same speed as the pipes
-  image(bgImg, bgX, 0, bgImg.width, height);
-  bgX -= pipes[0].speed * parallax;
+  
 
-  // this handles the "infinite loop" by checking if the right
-  // edge of the image would be on the screen, if it is draw a
-  // second copy of the image right next to it
-  // once the second image gets to the 0 point, we can reset bgX to
-  // 0 and go back to drawing just one image.
-  if (bgX <= -bgImg.width + width) {
-    image(bgImg, bgX + bgImg.width, 0, bgImg.width, height);
-    if (bgX <= -bgImg.width) {
-      bgX = 0;
+
+    image(bgImg, bgX, 0, bgImg.width, height);
+    bgX -= pipes[0].speed * parallax;
+  
+    if (bgX <= -bgImg.width + width) {
+      image(bgImg, bgX + bgImg.width, 0, bgImg.width, height);
+      if (bgX <= -bgImg.width) {
+        bgX = 0;
+      }
     }
-  }
+ 
 
   for (var i = pipes.length - 1; i >= 0; i--) {
     pipes[i].update();
@@ -176,9 +187,47 @@ function reset() {
 function keyPressed() {
   if (key === ' ') {
     bird.up();
-    audioJump.play();
+    if(localStorage.getItem("personaggio") == "pidgeot"){
+     audioJump.play();
+        }
+     if(localStorage.getItem("personaggio") == "penguin")
+     {
+      audioPenguin.play(); 
+      }
+     if(localStorage.getItem("personaggio") == "flappy")
+     {
+       audioFlappyBird.play();
+     }
+   
+     if(localStorage.getItem("personaggio") == "dragon")
+     {  
+       audioDrago.play();
+     }
+    
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
   }
+}
+function salta(){
+    bird.up();
+    if( localStorage.getItem("personaggio") == "pidgeot"){
+      audioJump.play();
+        }
+     if(localStorage.getItem("personaggio") == "penguin")
+     {
+      audioPenguin.play(); 
+      }
+     if(localStorage.getItem("personaggio") == "flappy")
+     {
+       audioFlappyBird.play();
+     }
+   
+     if(localStorage.getItem("personaggio") == "dragon")
+     {  
+       audioDrago.play();
+     }
+    
+    if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
+
 }
 
 function touchStarted() {

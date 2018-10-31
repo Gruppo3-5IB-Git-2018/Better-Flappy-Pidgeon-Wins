@@ -8,16 +8,58 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <script>
+
+      window.onload = function(){
+        console.log(localStorage.getItem('maxScore') + "/50");
+        document.getElementById("pScore").innerHTML = (localStorage.getItem('maxScore') + "/50").toString();
+        if(localStorage.getItem('maxScore') >= 50){
+          document.getElementById("original-dragon-blurred").style.visibility = "hidden";
+          document.getElementById("lock").style.visibility = "hidden";
+          document.getElementById("original-dragon").style.visibility = "visible";
+        }
+      }
+
       function flappy(){
           localStorage.setItem('personaggio', "flappy");
           document.getElementById("original-character").style.backgroundColor = "grey";
           document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
+          document.getElementById("original-penguin").style.backgroundColor = "transparent";
+          document.getElementById("original-dragon").style.backgroundColor = "transparent";
       }
 
       function pidgeot(){
           localStorage.setItem('personaggio', "pidgeot");
           document.getElementById("original-pidgeot").style.backgroundColor = "grey";
           document.getElementById("original-character").style.backgroundColor = "transparent";
+          document.getElementById("original-penguin").style.backgroundColor = "transparent";
+          document.getElementById("original-dragon").style.backgroundColor = "transparent";
+      }
+
+        function penguin(){
+          localStorage.setItem('personaggio', "penguin");
+          document.getElementById("original-penguin").style.backgroundColor = "grey";
+          document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
+          document.getElementById("original-character").style.backgroundColor = "transparent";
+          document.getElementById("original-dragon").style.backgroundColor = "transparent";
+        }
+
+        function dragonLocked(){
+          alert('Unlock with 50 points');
+        }
+
+        function dragon(){
+          if(localStorage.getItem('maxScore') >= 50){
+            localStorage.setItem('personaggio', "dragon");
+            document.getElementById("original-dragon").style.backgroundColor = "grey";
+            document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
+            document.getElementById("original-character").style.backgroundColor = "transparent";
+            document.getElementById("original-penguin").style.backgroundColor = "transparent";
+          }
+          console.log(localStorage.getItem('personaggio'));
+        }
+
+      function goback(){
+        window.location.href = "home.html";
       }
   </script>
 </head>
@@ -27,11 +69,22 @@
   <div id="background-select" class="w3-row w3-border">
         <div id="original-flappy-div" class="w3-third w3-container">
             <h1 id="title-character">Select a character</h1>
-            <img   onclick="flappy()" id="original-character" src="graphics/flappy-original.png">
+            <img   onclick="flappy()" ondblclick="goback()" id="original-character" src="graphics/flappy-original.png">
         </div>
         <div id="original-pidgeot-div" class="w3-third w3-container">
-                <img onclick="pidgeot()" id="original-pidgeot" src="graphics/pigeon.png">
+                <img onclick="pidgeot()" ondblclick="goback()" id="original-pidgeot" src="graphics/pigeon.png">
         </div>
+        <div id="original-penguin-div" class="w3-third w3-container">
+            <img onclick="penguin()" ondblclick="goback()" id="original-penguin" src="graphics/pinguino.png">
+        </div>
+
+        <div id="original-dragon-div" class="w3-third w3-container">
+          <img onclick="dragonLocked()" id="original-dragon-blurred" src="graphics/drago.png">
+          <img onclick="dragonLocked()" id="lock" src="graphics/lucchetto.png">
+          <img onclick="dragon()" ondblclick="goback()" id="original-dragon" src="graphics/drago.png">
+          <p id="pScore" style="color:red"> </p>
+      </div>
+
   </div>
 </body>
 
