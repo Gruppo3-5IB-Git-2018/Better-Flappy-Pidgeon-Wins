@@ -45,8 +45,7 @@ function preload() {
   
   pipeBodySprite = loadImage('graphics/guylegs.png');
   pipePeakSprite = loadImage('graphics/guytop.png');
-
-  if(localStorage.getItem("personaggio") != null){
+  bgImg = loadImage('graphics/fbb.png');
     if(localStorage.getItem("personaggio") == "pidgeot"){
       birdSprite = loadImage('graphics/pigeon.png');
       birdSpriteFlap = loadImage('graphics/pigeonfly.png');
@@ -54,26 +53,22 @@ function preload() {
     if(localStorage.getItem("personaggio") == "flappy"){
       birdSprite = loadImage('graphics/flappy-original.png');
       birdSpriteFlap = loadImage('graphics/flappy-original.png');
-      bgImgFB = loadImage('graphics/fbb.png');
+      bgImg = loadImage('graphics/fbb.png');
     }
 
     if(localStorage.getItem("personaggio") == "penguin"){
       birdSprite = loadImage('graphics/pinguino.png');
       birdSpriteFlap = loadImage('graphics/pinguino.png');
-      bgImgPen = loadImage('graphics/arctic2.jpg'); 
+      bgImg = loadImage('graphics/arctic2.jpg'); 
     }
 
     if(localStorage.getItem("personaggio") == "dragon"){
       birdSprite = loadImage('graphics/drago.png');
       birdSpriteFlap = loadImage('graphics/drago.png');
-      bgImgDra = loadImage('graphics/castle.jpg');
+      bgImg = loadImage('graphics/castle.jpg');
     }
-  }else{
-    birdSprite = loadImage('graphics/pigeon.png');
-    birdSpriteFlap = loadImage('graphics/pigeonfly.png');
-  }
+  
 
-  bgImg = loadImage('graphics/fbb.png');
   die = loadImage('graphics/burst.png')
   //if(localStorage.getItem('maxScore') == "") localStorage.setItem("maxScore", 0);
   if(localStorage.getItem('maxScore')) maxScore = localStorage.getItem('maxScore');
@@ -101,7 +96,6 @@ function draw() {
   
 
 
-  if(localStorage.getItem("personaggio") != null){
     image(bgImg, bgX, 0, bgImg.width, height);
     bgX -= pipes[0].speed * parallax;
   
@@ -111,44 +105,6 @@ function draw() {
         bgX = 0;
       }
     }
-  }
-  if(localStorage.getItem("personaggio") == "penguin")
-  {
-    image(bgImgPen, bgX, 0, bgImgPen.width, height);
-    bgX -= pipes[0].speed * parallax;
-  
-    if (bgX <= -bgImgPen.width + width) {
-      image(bgImgPen, bgX + bgImgPen.width, 0, bgImgPen.width, height);
-      if (bgX <= -bgImgPen.width) {
-        bgX = 0;
-      }
-    }
-  }
-  if(localStorage.getItem("personaggio") == "flappy")
-  {
-    image(bgImgFB, bgX, 0, bgImgFB.width, height);
-    bgX -= pipes[0].speed * parallax;
-  
-    if (bgX <= -bgImgFB.width + width) {
-      image(bgImgFB, bgX + bgImgFB.width, 0, bgImgFB.width, height);
-      if (bgX <= -bgImgFB.width) {
-        bgX = 0;
-      }
-    }
-  }
-
-  if(localStorage.getItem("personaggio") == "dragon")
-  {
-    image(bgImgDra, bgX, 0, bgImgDra.width, height);
-    bgX -= pipes[0].speed * parallax;
-  
-    if (bgX <= -bgImgDra.width + width) {
-      image(bgImgDra, bgX + bgImgDra.width, 0, bgImgDra.width, height);
-      if (bgX <= -bgImgDra.width) {
-        bgX = 0;
-      }
-    }
-  }
  
 
   for (var i = pipes.length - 1; i >= 0; i--) {
