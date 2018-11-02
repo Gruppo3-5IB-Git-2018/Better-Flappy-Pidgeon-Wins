@@ -46,7 +46,7 @@ function preload() {
   pipeBodySprite = loadImage('graphics/guylegs.png');
   pipePeakSprite = loadImage('graphics/guytop.png');
   bgImg = loadImage('graphics/fbb.png');
-    if(localStorage.getItem("personaggio") == "pidgeot"){
+    if(localStorage.getItem("personaggio") == "pidgeot" || localStorage.getItem("personaggio") == null){
       birdSprite = loadImage('graphics/pigeon.png');
       birdSpriteFlap = loadImage('graphics/pigeonfly.png');
     }
@@ -187,7 +187,7 @@ function reset() {
 function keyPressed() {
   if (key === ' ') {
     bird.up();
-    if(localStorage.getItem("personaggio") == "pidgeot"){
+    if(localStorage.getItem("personaggio") == "pidgeot" || localStorage.getItem("personaggio") == null){
      audioJump.play();
         }
      if(localStorage.getItem("personaggio") == "penguin")
@@ -209,7 +209,7 @@ function keyPressed() {
 }
 function salta(){
     bird.up();
-    if( localStorage.getItem("personaggio") == "pidgeot"){
+    if( localStorage.getItem("personaggio") == "pidgeot" || localStorage.getItem("personaggio") == null){
       audioJump.play();
         }
      if(localStorage.getItem("personaggio") == "penguin")

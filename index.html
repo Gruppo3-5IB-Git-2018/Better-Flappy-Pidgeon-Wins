@@ -5,8 +5,13 @@
         window.onload = function() {
             localStorage.setItem('personaggio', 'pidgeot');
             if(localStorage.getItem('maxScore') == null) localStorage.setItem('maxScore', 0);
+            sleep(5000);
             window.location.href = './home.html';
         }
+        
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
     </script>
 </head>
 <body>
