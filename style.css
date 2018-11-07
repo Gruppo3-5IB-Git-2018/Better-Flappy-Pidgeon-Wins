@@ -10,6 +10,14 @@ ul{
   cursor: pointer;
 } 
 
+* {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+} 
+
 #defaultCanvas0{
   display: block;
 }
@@ -368,8 +376,8 @@ body {
 }
 
 
-#lock:hover, #original-dragon-blurred:hover{
-animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+#lock:hover, #original-dragon-blurred:hover, #lock2:hover, #original-plane-blurred:hover{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -389,6 +397,38 @@ animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   left:80%;
 }
 
+
+#original-plane-blurred{
+  position: fixed;
+  top: 70%;
+  left: 45%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+#lock2{
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 70%;
+  left:48%;
+}
+
+#original-plane{
+  position: fixed;
+  transition: transform .2s; /* Animation */
+  top: 70%;
+  left:45%;
+  visibility: hidden;
+}
+#p2Score{
+  position: fixed;
+  font-size: large;
+  top: 83%;
+  left:49.5%;
+}
 
 #title-character{
   top: 25%;
@@ -421,6 +461,6 @@ animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   }
 }
 
-#original-dragon:hover, #original-character:hover, #original-pidgeot:hover, #original-penguin:hover{
+#original-dragon:hover, #original-character:hover, #original-pidgeot:hover, #original-penguin:hover, #original-plane:hover{
   transform: scale(1.3);
 }

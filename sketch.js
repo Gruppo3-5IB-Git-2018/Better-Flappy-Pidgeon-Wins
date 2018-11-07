@@ -31,6 +31,7 @@ var audioBakc = new Audio('Musica/sb.mp3');
 var audioPenguin = new Audio ('Musica/penguinSound.mp3');
 var audioDrago = new Audio ('Musica/dragoSound.mp3');
 var audioFlappyBird = new Audio ('Musica/birdFlappySound.mp3');
+var audioAiroplane = audioFlappyBird;
 
 var widthRatio;
 var heightRatio;
@@ -67,6 +68,12 @@ function preload() {
       birdSpriteFlap = loadImage('graphics/drago.png');
       bgImg = loadImage('graphics/castle.jpg');
     }
+
+    if(localStorage.getItem("personaggio") == "plane"){
+      birdSprite = loadImage('graphics/plane.png');
+      birdSpriteFlap = loadImage('graphics/plane.png');
+      bgImg = loadImage('graphics/fbb.png');
+    }
   
 
   die = loadImage('graphics/burst.png')
@@ -93,10 +100,8 @@ function setup() {
 
 function draw() {
   background(0);
-  
 
-
-    image(bgImg, bgX, 0, bgImg.width, height);
+  image(bgImg, bgX, 0, bgImg.width, height);
     bgX -= pipes[0].speed * parallax;
   
     if (bgX <= -bgImg.width + width) {

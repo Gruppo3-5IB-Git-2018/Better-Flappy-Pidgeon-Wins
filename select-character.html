@@ -10,12 +10,22 @@
   <script>
 
       window.onload = function(){
-        console.log(localStorage.getItem('maxScore') + "/50");
-        document.getElementById("pScore").innerHTML = (localStorage.getItem('maxScore') + "/50").toString();
+        if(localStorage.getItem('maxScore') != null){
+          document.getElementById("pScore").innerHTML = (localStorage.getItem('maxScore') + "/50").toString();
+          document.getElementById("p2Score").innerHTML = (localStorage.getItem('maxScore') + "/70").toString();
+        }else{
+          document.getElementById("pScore").innerHTML = ("0/50").toString();
+          document.getElementById("p2Score").innerHTML = ("0/70").toString();
+        }
         if(localStorage.getItem('maxScore') >= 50){
           document.getElementById("original-dragon-blurred").style.visibility = "hidden";
           document.getElementById("lock").style.visibility = "hidden";
           document.getElementById("original-dragon").style.visibility = "visible";
+        }
+        if(localStorage.getItem('maxScore') >= 70){
+          document.getElementById("original-plane-blurred").style.visibility = "hidden";
+          document.getElementById("lock2").style.visibility = "hidden";
+          document.getElementById("original-plane").style.visibility = "visible";
         }
       }
 
@@ -25,6 +35,7 @@
           document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
           document.getElementById("original-penguin").style.backgroundColor = "transparent";
           document.getElementById("original-dragon").style.backgroundColor = "transparent";
+          document.getElementById("original-plane").style.backgroundColor = "transparent";
       }
 
       function pidgeot(){
@@ -33,6 +44,7 @@
           document.getElementById("original-character").style.backgroundColor = "transparent";
           document.getElementById("original-penguin").style.backgroundColor = "transparent";
           document.getElementById("original-dragon").style.backgroundColor = "transparent";
+          document.getElementById("original-plane").style.backgroundColor = "transparent";
       }
 
         function penguin(){
@@ -41,6 +53,7 @@
           document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
           document.getElementById("original-character").style.backgroundColor = "transparent";
           document.getElementById("original-dragon").style.backgroundColor = "transparent";
+          document.getElementById("original-plane").style.backgroundColor = "transparent";
         }
 
         function dragonLocked(){
@@ -54,6 +67,23 @@
             document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
             document.getElementById("original-character").style.backgroundColor = "transparent";
             document.getElementById("original-penguin").style.backgroundColor = "transparent";
+            document.getElementById("original-plane").style.backgroundColor = "transparent";
+          }
+          console.log(localStorage.getItem('personaggio'));
+        }
+
+        function planeLocked(){
+          alert('Unlock with 70 points');
+        }
+
+        function plane(){
+          if(localStorage.getItem('maxScore') >= 70){
+            localStorage.setItem('personaggio', "plane");
+            document.getElementById("original-plane").style.backgroundColor = "grey";
+            document.getElementById("original-pidgeot").style.backgroundColor = "transparent";
+            document.getElementById("original-character").style.backgroundColor = "transparent";
+            document.getElementById("original-penguin").style.backgroundColor = "transparent";
+            document.getElementById("original-dragon").style.backgroundColor = "transparent";
           }
           console.log(localStorage.getItem('personaggio'));
         }
@@ -83,6 +113,12 @@
           <img onclick="dragonLocked()" id="lock" src="graphics/lucchetto.png">
           <img onclick="dragon()" ondblclick="goback()" id="original-dragon" src="graphics/drago.png">
           <p id="pScore" style="color:red"> </p>
+
+          <div id="original-plane-div" class="w3-third w3-container">
+            <img onclick="planeLocked()" id="original-plane-blurred" src="graphics/airplane.png">
+            <img onclick="planeLocked()" id="lock2" src="graphics/lucchetto.png">
+            <img onclick="plane()" ondblclick="goback()" id="original-plane" src="graphics/airplane.png">
+            <p id="p2Score" style="color:red"> </p>
       </div>
 
   </div>
