@@ -70,6 +70,7 @@ function preload() {
     }
 
     if(localStorage.getItem("personaggio") == "plane"){
+      console.log("plane");
       birdSprite = loadImage('graphics/plane.png');
       birdSpriteFlap = loadImage('graphics/plane.png');
       bgImg = loadImage('graphics/fbb.png');
@@ -193,7 +194,7 @@ function keyPressed() {
   if (key === ' ') {
     bird.up();
     if(localStorage.getItem("personaggio") == "pidgeot" || localStorage.getItem("personaggio") == null){
-     audioJump.play();
+      audioJump.play();
         }
      if(localStorage.getItem("personaggio") == "penguin")
      {
@@ -207,6 +208,9 @@ function keyPressed() {
      if(localStorage.getItem("personaggio") == "dragon")
      {  
        audioDrago.play();
+     }
+     if(localStorage.getItem("personaggio") == "plane"){
+       audioJump.play();
      }
     
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
@@ -230,6 +234,9 @@ function salta(){
      {  
        audioDrago.play();
      }
+     if(localStorage.getItem("personaggio") == "plane"){
+      audioJump.play();
+    }
     
     if (isOver) reset(); //you can just call reset() in Machinelearning if you die, because you cant simulate keyPress with code.
 
